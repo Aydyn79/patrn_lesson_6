@@ -7,20 +7,20 @@ from frame.main import Debuging, FakeApplication
 from views import routes
 from urls import fronts
 
-# # Обычный сервер
-# # Для запуска раскомментируйте!
-# application = Framework(routes, fronts)
-# with make_server('', 8000, application) as serv:
-#     print("Сервер запущен на порту 8000...")
-#     serv.serve_forever()
-
-
-
-##Фэйковый сервер
-application = FakeApplication(routes, fronts)
+# Обычный сервер
+# Для запуска раскомментируйте!
+application = Framework(routes, fronts)
 with make_server('', 8000, application) as serv:
     print("Сервер запущен на порту 8000...")
     serv.serve_forever()
+
+
+
+# ##Фэйковый сервер
+# application = FakeApplication(routes, fronts)
+# with make_server('', 8000, application) as serv:
+#     print("Сервер запущен на порту 8000...")
+#     serv.serve_forever()
 
 
 # # Отладочный сервер

@@ -140,17 +140,17 @@ class CopyService:
         except KeyError:
             return '200 OK', 'Ни одного сервиса еще не добавлено'
 #      _________________________________________________________________________________________     #
-#  Здесь живет непеределанный код!!!
+#  Здесь жил непеределанный код!!!
 
-@AppRoute(routes=routes, url='/student-list/')
+@AppRoute(routes=routes, url='/customer_list/')
 class CustomerListView(ListView):
     queryset = site.customers
     template_name = 'customer_list.html'
 
 
-@AppRoute(routes=routes, url='/create-student/')
+@AppRoute(routes=routes, url='/customer_create/')
 class CustomerCreateView(CreateView):
-    template_name = 'customer_create.html'
+    template_name = 'create_customer.html'
 
     def create_customer(self, data: dict):
         name = data['name']
@@ -159,7 +159,7 @@ class CustomerCreateView(CreateView):
         site.customers.append(new_obj)
 
 
-@AppRoute(routes=routes, url='/add-student/')
+@AppRoute(routes=routes, url='/add_service/')
 class AddServiceByCustomerCreateView(CreateView):
     template_name = 'add_service.html'
 
